@@ -1,0 +1,162 @@
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "cute_c2",
+    hdrs = ["cute_c2.h"],
+    srcs = ["cute_c2.h"],
+    defines = ["CUTE_C2_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_coroutine",
+    hdrs = ["cute_coroutine.h"],
+    srcs = ["cute_coroutine.h"],
+    defines = ["CUTE_COROUTINE_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_sound",
+    hdrs = ["cute_sound.h"],
+    srcs = ["cute_sound.h"],
+    defines = ["CUTE_SOUND_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_time",
+    hdrs = ["cute_time.h"],
+    srcs = ["cute_time.h"],
+    defines = ["CUTE_TIME_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_memfile",
+    hdrs = ["cute_memfile.h"],
+    srcs = ["cute_memfile.h"],
+    defines = ["CUTE_MEMFILE_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_files",
+    hdrs = ["cute_files.h"],
+    srcs = ["cute_files.h"],
+    defines = ["CUTE_FILES_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_sid",
+    hdrs = ["cute_sid.h"],
+    srcs = ["cute_sid.h"],
+    defines = ["CUTE_SID_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_math",
+    hdrs = ["cute_math.h"],
+    srcs = ["cute_math.h"],
+    defines = ["CUTE_MATH_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_png",
+    hdrs = ["cute_png.h"],
+    srcs = ["cute_png.h"],
+    defines = ["CUTE_PNG_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_gl",
+    hdrs = ["cute_gl.h"],
+    srcs = ["cute_gl.h"],
+    defines = ["CUTE_GL_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_utf",
+    hdrs = ["cute_utf.h"],
+    srcs = ["cute_utf.h"],
+    defines = ["CUTE_UTF_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_huff",
+    hdrs = ["cute_huff.h"],
+    srcs = ["cute_huff.h"],
+    defines = ["CUTE_HUFF_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_spheremesh",
+    hdrs = ["cute_spheremesh.h"],
+    srcs = ["cute_spheremesh.h"],
+    defines = ["CUTE_SPHEREMESH_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_path",
+    hdrs = ["cute_path.h"],
+    srcs = ["cute_path.h"],
+    defines = ["CUTE_PATH_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_alloc",
+    hdrs = ["cute_alloc.h"],
+    srcs = ["cute_alloc.h"],
+    defines = ["CUTE_ALLOC_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_math2d",
+    hdrs = ["cute_math2d.h"],
+    srcs = ["cute_math2d.h"],
+    defines = ["CUTE_MATH2D_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_spritebatch",
+    hdrs = ["cute_spritebatch.h"],
+    srcs = ["cute_spritebatch.h"],
+    defines = ["CUTE_SPRITEBATCH_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_tiled",
+    hdrs = ["cute_tiled.h"],
+    srcs = ["cute_tiled.h"],
+    defines = ["CUTE_TILED_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_filewatch",
+    hdrs = ["cute_filewatch.h"],
+    srcs = ["cute_filewatch.h"],
+    defines = ["CUTE_FILEWATCH_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_ani",
+    hdrs = ["cute_ani.h"],
+    srcs = ["cute_ani.h"],
+    defines = ["CUTE_ANI_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_font",
+    hdrs = ["cute_font.h"],
+    srcs = ["cute_font.h"],
+    defines = ["CUTE_FONT_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_sync",
+    hdrs = ["cute_sync.h"],
+    srcs = ["cute_sync.h"],
+    defines = ["CUTE_SYNC_IMPLEMENTATION=1"],
+)
+
+cc_library(
+    name = "cute_serialize",
+    hdrs = ["cute_serialize.h"],
+    srcs = ["cute_serialize.h"],
+    defines = ["CUTE_SERIALIZE_IMPLEMENTATION=1"],
+)

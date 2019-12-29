@@ -10,3 +10,6 @@ tests
 *.swo
 *.swn
 *.orig
+
+# Bazel
+/bazel-*
