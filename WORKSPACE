@@ -1,1 +1,1 @@
-workspace(name = "cute_headers")
+workspace(name = "com_github_zaucy_cute_headers")
