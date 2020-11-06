@@ -1,0 +1,27 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
+
+cc_library(
+    name = "cute_gl",
+    includes = ["."],
+    strip_include_prefix = ".",
+    hdrs = ["cute_gl.h"],
+)
+
+cc_binary(
+    name = "examples_cute_gl_and_c2",
+    srcs = ["main.cpp"],
+    deps = [
+        ":cute_gl",
+        "//:cute_c2",
+        "//:cute_time",
+        "//examples_cute_gl_and_c2/glad",
+        "//examples_cute_gl_and_c2/glfw:glfw_win32",
+        "@bazel_tools//tools/cpp/runfiles",
+    ],
+    data = [
+        "simple.ps",
+        "simple.vs",
+        "postprocess.ps",
+        "postprocess.vs",
+    ],
+)

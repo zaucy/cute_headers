@@ -1,0 +1,35 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+_common_srcs = [
+    "context.c",
+    "glfw_config.h",
+    "init.c",
+    "input.c",
+    "monitor.c",
+    "vulkan.c",
+    "window.c",
+    "egl_context.c",
+]
+
+_common_hdrs = [
+  "internal.h",
+  "glfw3.h",
+  "glfw_config.h",
+  "egl_context.h",
+]
+
+cc_library(
+    name = "glfw_win32",
+    visibility = ["//examples_cute_gl_and_c2:__pkg__"],
+    includes = ["."],
+    include_prefix = "glfw",
+    strip_include_prefix = ".",
+    local_defines = ["_GLFW_WIN32"],
+    hdrs = _common_hdrs + glob(["win32_*.h", "wgl_*.h"]),
+    srcs = _common_srcs + glob(["win32_*.c", "wgl_*.c"]),
+    linkopts = [
+        "-DEFAULTLIB:user32.lib",
+        "-DEFAULTLIB:gdi32.lib",
+        "-DEFAULTLIB:shell32.lib",
+    ],
+)

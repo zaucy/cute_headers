@@ -1,0 +1,10 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "KHR",
+    visibility = ["//examples_cute_gl_and_c2:__subpackages__"],
+    includes = ["."],
+    include_prefix = "KHR",
+    strip_include_prefix = ".",
+    hdrs = ["khrplatform.h"],
+)

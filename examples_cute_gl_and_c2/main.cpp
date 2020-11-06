@@ -1,6 +1,10 @@
+#include <memory>
+#include <string>
+#include <iostream>
 #include <glad/glad.h>
 #include <glfw/glfw_config.h>
 #include <glfw/glfw3.h>
+#include "tools/cpp/runfiles/runfiles.h"
 
 #define CUTE_GL_IMPLEMENTATION
 #include <cute_gl.h>
@@ -11,6 +15,9 @@
 #define CUTE_C2_IMPLEMENTATION
 #include <cute_c2.h>
 
+using bazel::tools::cpp::runfiles::Runfiles;
+
+std::unique_ptr<Runfiles> bazel_runfiles;
 GLFWwindow* window;
 float projection[16];
 gl_shader_t simple;
@@ -28,6 +35,16 @@ float wheel;
 c2Circle user_circle;
 c2Capsule user_capsule;
 float user_rotation;
+
+const char* ShaderPath(const char* path) {
+	if(bazel_runfiles == nullptr) {
+		return path;
+	}
+
+	static std::string shader_path;
+	shader_path = bazel_runfiles->Rlocation(std::string("com_github_zaucy_cute_headers/examples_cute_gl_and_c2/") + path);
+	return shader_path.c_str();
+}
 
 void* ReadFileToMemory(const char* path, int* size)
 {
@@ -124,8 +141,8 @@ void ResizeFramebuffer(int w, int h)
 	if (first) 
 	{
 		first = 0;
-		char* vs = (char*)ReadFileToMemory("postprocess.vs", 0);
-		char* ps = (char*)ReadFileToMemory("postprocess.ps", 0);
+		char* vs = (char*)ReadFileToMemory(ShaderPath("postprocess.vs"), 0);
+		char* ps = (char*)ReadFileToMemory(ShaderPath("postprocess.ps"), 0);
 		gl_load_shader(&post_fx, vs, ps);
 		free(vs);
 		free(ps);
@@ -1516,8 +1533,10 @@ void try_out_and_render_dual()
 	DrawPoly(dual.verts, poly.count);
 }
 
-int main()
+int main(int, char* argv[])
 {
+	bazel_runfiles = std::unique_ptr<Runfiles>(Runfiles::Create(argv[0]));
+
 	// glfw and glad setup
 	glfwSetErrorCallback(ErrorCB);
 
@@ -1573,8 +1592,8 @@ int main()
 	// renderables are used to construct draw calls (see main loop below)
 	gl_renderable_t r;
 	gl_make_renderable(&r, &vd);
-	char* vs = (char*)ReadFileToMemory("simple.vs", 0);
-	char* ps = (char*)ReadFileToMemory("simple.ps", 0);
+	char* vs = (char*)ReadFileToMemory(ShaderPath("simple.vs"), 0);
+	char* ps = (char*)ReadFileToMemory(ShaderPath("simple.ps"), 0);
 	CUTE_GL_ASSERT(vs);
 	CUTE_GL_ASSERT(ps);
 	gl_load_shader(&simple, vs, ps);

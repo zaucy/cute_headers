@@ -1,0 +1,14 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "glad",
+    visibility = ["//examples_cute_gl_and_c2:__subpackages__"],
+    includes = ["."],
+    include_prefix = "glad",
+    strip_include_prefix = ".",
+    srcs = ["glad.c"],
+    hdrs = ["glad.h"],
+    deps = [
+        "//examples_cute_gl_and_c2/KHR",
+    ],
+)
